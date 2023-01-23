@@ -1,7 +1,9 @@
 package ejercicioAreaCirculo;//package sockets2;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -13,6 +15,7 @@ public class Conexion
     protected ServerSocket ss; //Socket del servidor
     protected Socket cs; //Socket del cliente
     protected DataOutputStream salidaServidor, salidaCliente; //Flujo de datos de salida
+
 
     public Conexion(String tipo) throws IOException //Constructor
     {

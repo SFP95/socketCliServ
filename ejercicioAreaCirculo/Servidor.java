@@ -8,6 +8,7 @@ public class Servidor extends Conexion //Se hereda de conexión para hacer uso d
 {
     public Servidor() throws IOException{super("servidor");} //Se usa el constructor para servidor de sockets2.Conexion
 
+    public String cabecera= "[SERVIDOR]: ";
     public void startServer()//Método para iniciar el servidor
     {
         try
@@ -32,14 +33,15 @@ public class Servidor extends Conexion //Se hereda de conexión para hacer uso d
                 //Se muestra por pantalla el mensaje recibido
                 //System.out.println(mensajeServidor);
 
-                String mensaje= salidaCliente.toString();
-                System.out.println( "\nCLiente me ha dicho"+mensajeServidor+"\n-----------------------\n");
-                System.out.println("\nCAlCULANDO AREA....");
-                int radio= Integer.parseInt(mensajeServidor.toString());
+                for (int i=0; i<=10 ; i++){
 
-                int res= (int) (Math.PI+radio*radio);
-
-                salidaCliente.writeUTF("El área del circulo con radio "+radio+" es : "+ res+" cm");
+                    int num = Integer.parseInt(mensajeServidor);
+                    if(num%2==0){
+                        salidaCliente.writeUTF(cabecera + "Este es el mensaje número " + (num) + "\n");
+                    }else if (num%2!=0){
+                        salidaCliente.writeUTF(cabecera + "Ese no es un número par ¬¬ ");
+                    }
+                }
 
             }
 
