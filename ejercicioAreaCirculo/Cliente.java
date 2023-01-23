@@ -29,6 +29,8 @@ public class Cliente extends ejercicioAreaCirculo.Conexion {
             //Flujo de datos hacia el servidor
             salidaServidor = new DataOutputStream(cs.getOutputStream());
 
+            //Falta poner que el contador lo mande servidor con lo mandado a pantalla
+            // los contadores funcionan
 
             //contador mas numeros pares he impares:
             for (int i=0; i<=10 ; i++){
