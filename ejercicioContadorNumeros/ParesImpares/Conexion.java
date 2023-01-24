@@ -1,4 +1,4 @@
-package ejercicioContadorNumeros;//package sockets2;
+package ejercicioContadorNumeros.ParesImpares;//package sockets2;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package ejercicioContadorNumeros;
+package ejercicioContadorNumeros.contador;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -104,10 +104,7 @@ public class Servidor {
         hilo.start();
     }
 
-    public void calcularArea(int radio){
-        int res= (int) (Math.PI +radio*radio);
-        System.out.println("El area del círculo es de radio"+ radio + " es "+res+" cm2");
-    }
+
 
     public static void main(String[] args) throws IOException {
         Servidor s = new Servidor();

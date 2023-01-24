@@ -26,7 +26,7 @@ public class Cliente extends ejercicioAreaCirculo.Conexion {
 
     protected BufferedReader recogidaDatos = new BufferedReader(new InputStreamReader(System.in));
 
-    public String respuestaServidor;
+    public String respuesta;
     public String cabecera="[CLIENTE]: ";
     public void startClient() //Método para iniciar el cliente
     {
@@ -35,21 +35,11 @@ public class Cliente extends ejercicioAreaCirculo.Conexion {
             //Flujo de datos hacia el servidor
             salidaServidor = new DataOutputStream(cs.getOutputStream());
 
-            //Falta poner que el contador lo mande servidor con lo mandado a pantalla
-            // los contadores funcionan
-
-            //contador mas numeros pares he impares:
-
-            System.out.println("Dime un numero: ");
-            salidaCliente.writeUTF(recogidaDatos.readLine());
-
-            respuestaServidor= recogidaDatos.readLine();
-            salidaServidor.writeUTF("" + respuestaServidor);
 
             //Contado con numero introducido por pantalla:
             for (int i=0; i<=10 ; i++){
                 System.out.println("Dime un numero: ");
-
+                respuesta=recogidaDatos.readLine();
                 int num =sc.nextInt();
                 if(num%2==0){
                     salidaServidor.writeUTF("Este es el mensaje número " + (num) + "\n");

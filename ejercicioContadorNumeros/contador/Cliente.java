@@ -1,4 +1,4 @@
-package ejercicioContadorNumeros;
+package ejercicioContadorNumeros.contador;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -79,7 +79,7 @@ public class Cliente {
         try {
             do {
                 st = (String) bufferDeEntrada.readUTF();
-                mostrarTexto("\n[sockets2.Servidor] => " + st);
+                mostrarTexto("\n[Servidor] => " + st);
                 System.out.print("\n[Usted] => ");
             } while (!st.equals(COMANDO_TERMINACION));
         } catch (IOException e) {}
