@@ -31,21 +31,19 @@ public class Servidor extends Conexion //Se hereda de conexión para hacer uso d
             while((mensajeServidor = entrada.readLine()) != null) //Mientras haya mensajes desde el cliente
             {
                 //Se muestra por pantalla el mensaje recibido
-                //System.out.println(mensajeServidor);
+                salidaCliente.writeUTF("Dime el radio de la circunferencia en cm");
 
-                for (int i=0; i<=10 ; i++){
+                //recogida de datos introducidos por cliente
+                int radio = Integer.parseInt(entrada.readLine());
 
-                    int num = Integer.parseInt(mensajeServidor);
-                    if(num%2==0){
-                        salidaCliente.writeUTF(cabecera + "Este es el mensaje número " + (num) + "\n");
-                    }else if (num%2!=0){
-                        salidaCliente.writeUTF(cabecera + "Ese no es un número par ¬¬ ");
-                    }
-                }
+                //Calculo del aurea del circulo
+                int res= (int) (Math.PI+radio*radio);
 
+                //mmensaje con el resultado mostrando tanto el radio como el resultado del calculo
+                salidaCliente.writeUTF("El area de  circulo con radio "+ radio + " es de : "+res+" cm.");
             }
 
-            System.out.println("Fin de la conexión");
+            System.out.println("\n---------------------\nFin de la conexión");
 
             ss.close();//Se finaliza la conexión con el cliente
         }

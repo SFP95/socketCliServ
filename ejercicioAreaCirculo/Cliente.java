@@ -24,10 +24,8 @@ public class Cliente extends ejercicioAreaCirculo.Conexion {
     private Scanner sc= new Scanner(System.in);
     public Cliente() throws IOException{super("cliente");} //Se usa el constructor para cliente de sockets2.Conexion
 
-    protected BufferedReader recogidaDatos = new BufferedReader(new InputStreamReader(System.in));
-
     public String respuesta;
-    public String cabecera="[CLIENTE]: ";
+
     public void startClient() //Método para iniciar el cliente
     {
         try
@@ -35,18 +33,10 @@ public class Cliente extends ejercicioAreaCirculo.Conexion {
             //Flujo de datos hacia el servidor
             salidaServidor = new DataOutputStream(cs.getOutputStream());
 
-
-            //Contado con numero introducido por pantalla:
-            for (int i=0; i<=10 ; i++){
-                System.out.println("Dime un numero: ");
-                respuesta=recogidaDatos.readLine();
-                int num =sc.nextInt();
-                if(num%2==0){
-                    salidaServidor.writeUTF("Este es el mensaje número " + (num) + "\n");
-                }else if (num%2!=0){
-                    salidaServidor.writeUTF("Ese no es un número par ¬¬ ");
-                }
-            }
+            //recogida de los datos  que se piden por pantalla
+            respuesta=sc.nextLine();
+            //envio de los datos al servidor
+            salidaServidor.writeUTF(respuesta);
 
             cs.close();//Fin de la conexión
 
