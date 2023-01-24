@@ -65,10 +65,11 @@ public class Servidor {
         System.out.print(s);
     }
 
-    public void escribirDatos() {
+    public void escribirDatos() throws IOException {
         while (true) {
             System.out.print("[Usted] => ");
-            enviar(escaner.nextLine());   
+            //enviar(escaner.nextLine());
+            contador(); //ejercico del contador
         }
     }
 
@@ -104,9 +105,15 @@ public class Servidor {
         hilo.start();
     }
 
+    public void contador() throws IOException {
+        bufferDeSalida.writeUTF("Dime un número: "); // se envía a cliente
+        int num= Integer.parseInt(bufferDeEntrada.readLine()); //recoge el dato del ciente
+        bufferDeSalida.writeUTF("Este es el mensaje con el numero : " + (num) + "\n"); // envia el resultado al cliente
 
+    }
 
     public static void main(String[] args) throws IOException {
+
         Servidor s = new Servidor();
         Scanner sc = new Scanner(System.in);
 
@@ -114,7 +121,6 @@ public class Servidor {
         String puerto = sc.nextLine();
         if (puerto.length() <= 0) puerto = "5050";
         s.ejecutarConexion(Integer.parseInt(puerto));
-
         s.escribirDatos();
 
     }

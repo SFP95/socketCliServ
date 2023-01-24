@@ -94,13 +94,7 @@ public class Cliente {
                 enviar(entrada);
         }
     }
-    private static void escribirRadio() {
-        Scanner sc = new Scanner(System.in);
-        mostrarTexto("Dime el radio del circulo en centimetros: [cm]");
-        String radio= sc.nextLine();
-        //enviar(radio);
 
-    }
 
     public static void main(String[] argumentos) {
         Cliente cliente = new Cliente();
@@ -114,6 +108,5 @@ public class Cliente {
         if (puerto.length() <= 0) puerto = "5050";
         cliente.ejecutarConexion(ip, Integer.parseInt(puerto));
         cliente.escribirDatos();
-        cliente.escribirRadio();
     }
 }
