@@ -19,6 +19,7 @@ public class Servidor {
 
     public void levantarConexion(int puerto) {
         try {
+            System.out.println("ESTOY DENTRO");
             serverSocket = new ServerSocket(puerto);
             mostrarTexto("Esperando conexión entrante en el puerto " + String.valueOf(puerto) + "...");
             socket = serverSocket.accept();
@@ -105,25 +106,23 @@ public class Servidor {
         hilo.start();
     }
 
-    public void contador() throws IOException {
+    public void contador() throws IOException { //EJECICIO
         bufferDeSalida.writeUTF("Dime un número: "); // se envía a cliente
         int num= Integer.parseInt(bufferDeEntrada.readLine()); //recoge el dato del ciente
         bufferDeSalida.writeUTF("Este es el mensaje con el numero : " + (num) + "\n"); // envia el resultado al cliente
 
     }
 
-    public static void main(String[] args) throws IOException {
-
-        Servidor s = new Servidor();
-        Scanner sc = new Scanner(System.in);
-
-        mostrarTexto("Ingresa el puerto [5050 por defecto]: ");
-        String puerto = sc.nextLine();
-        if (puerto.length() <= 0) puerto = "5050";
-        s.ejecutarConexion(Integer.parseInt(puerto));
-        s.escribirDatos();
-
-    }
+//    public static void main(String[] args) throws IOException {
+//
+//        Servidor s = new Servidor();
+//        Scanner sc = new Scanner(System.in);
+//
+//
+//        s.ejecutarConexion(Integer.parseInt(puerto));
+//        s.escribirDatos();
+//
+//    }
 
 
 }

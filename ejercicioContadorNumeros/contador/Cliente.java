@@ -109,4 +109,8 @@ public class Cliente {
         cliente.ejecutarConexion(ip, Integer.parseInt(puerto));
         cliente.escribirDatos();
     }
+
+    public  void enviar(){
+
+    }
 }
