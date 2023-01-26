@@ -118,6 +118,6 @@ public class Servidor {
         s.escribirDatos();
     }
 
-
-
+    public void InitServidor() {
+    }
 }

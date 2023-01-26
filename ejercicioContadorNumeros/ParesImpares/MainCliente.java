@@ -20,7 +20,7 @@ public class MainCliente {
     {
         Cliente cli = new Cliente(); //Se crea el cliente
 
-        System.out.println("Iniciando cliente\n");
+        System.out.println("Iniciando cliente\n----------------\n");
         cli.startClient(); //Se inicia el cliente
     }
 }

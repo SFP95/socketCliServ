@@ -4,7 +4,6 @@ package ejercicioContadorNumeros.contador;/*
  * and open the template in the editor.
  */
 //package sockets2;
-import ejercicioAreaCirculo.Cliente;
 
 import java.io.IOException;
 
@@ -18,9 +17,9 @@ public class MainCliente {
 
     public static void main(String[] args) throws IOException
     {
-        ejercicioAreaCirculo.Cliente cli = new Cliente(); //Se crea el cliente
+        Cliente cli = new Cliente(); //Se crea el cliente
 
-        System.out.println("Iniciando cliente\n");
-        cli.startClient(); //Se inicia el cliente
+        System.out.println("\nIniciando cliente\n----------------\n");
+        cli.initCLiente(); //Se inicia el cliente
     }
 }

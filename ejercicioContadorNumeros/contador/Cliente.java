@@ -3,14 +3,13 @@ package ejercicioContadorNumeros.contador;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.Socket;
 import java.util.Scanner;
 public class Cliente extends Conexion {
 
     //para poder recoger la respuesta por terminal
     public Scanner scan = new Scanner(System.in);
 
-    public Cliente(String tipo) throws IOException {
+    public Cliente() throws IOException {
         super("CLIENTE");
     }
     public void initCLiente(){
