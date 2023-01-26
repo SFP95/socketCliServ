@@ -27,7 +27,7 @@ public class Cliente extends Conexion{
             /*----- Lo que recibe el cliente de parte de servidor -----*/
 
             input_server= new DataInputStream(skCliente.getInputStream());
-            int respuesta=input_server.readInt();
+            int respuesta=input_server.read();
             System.out.println("[SERVER] Me has dicho: "+respuesta);
 
             //cerramos conexion

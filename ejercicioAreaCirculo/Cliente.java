@@ -5,45 +5,39 @@
  */
 package ejercicioAreaCirculo;
 
-/**
- *
- * @author achil
- */
-
-
-
-import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
+public class Cliente extends Conexion{
 
-public class Cliente extends ejercicioAreaCirculo.Conexion {
+    public Scanner scan=new Scanner(System.in);
 
-    private Scanner sc= new Scanner(System.in);
-    public Cliente() throws IOException{super("cliente");} //Se usa el constructor para cliente de sockets2.Conexion
+    public Cliente() throws IOException {
+        super("CLIENTE");
+    }
+    public  void  initCLiente(){
+        try {
+            // salida de servidor y recogida de datos
+            output_Server = new DataOutputStream(skCliente.getOutputStream());
+            output_cliente = new DataOutputStream(skCliente.getOutputStream());
 
-    public String respuesta;
+            //EJERCICIO AREA CIRCULO:
+            output_Server.writeUTF("Dime el radio del ciruculo (cm):");
+            //System.out.println("Dime el radio del ciruculo (cm):");
+            int num= scan.nextInt();
+            output_cliente.writeInt(num);;
 
-    public void startClient() //Método para iniciar el cliente
-    {
-        try
-        {
-            //Flujo de datos hacia el servidor
-            salidaServidor = new DataOutputStream(cs.getOutputStream());
+            /*----- Lo que recibe el cliente de parte de servidor -----*/
 
-            //recogida de los datos  que se piden por pantalla
-            respuesta=sc.nextLine();
-            //envio de los datos al servidor
-            salidaServidor.writeUTF(respuesta);
+            input_server= new DataInputStream(skCliente.getInputStream());
+            int resuesta= input_server.read();
+            System.out.println("[SERVER] "+resuesta);
 
-            cs.close();//Fin de la conexión
-
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
+        }catch (Exception e){
+            //mensaje de error en caso de fallos en la conexión
+            System.out.println("Errores encontrado en" + e.getMessage());
         }
     }
 }
