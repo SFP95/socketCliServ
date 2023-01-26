@@ -29,9 +29,9 @@ public class Cliente extends Conexion {
 
             /*---------------------- LO QUE RECIBIRA EL CLIENTE ---------------*/
 
-            intput_cliente = new DataInputStream(skCliente.getInputStream());
-            int mensajeRespuestaServer= intput_cliente.readInt();
-            System.out.println("[CLIENTE] Me has dicho: " + mensajeRespuestaServer); //recime el número
+            input_server = new DataInputStream(skCliente.getInputStream());
+            int mensajeRespuestaServer= input_server.readInt();
+            System.out.println("[SERVER] Me has dicho: " + mensajeRespuestaServer); //recime el número
 
 
             //Cerramos conexión
