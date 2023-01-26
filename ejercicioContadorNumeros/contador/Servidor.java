@@ -27,7 +27,9 @@ public class Servidor extends Conexion {
                 String mensajeServer="El numero que cliente me ha dado es: ";
                 System.out.println(mensajeServer+numRespuestaCliente); // impresión para confirma que nos ha llegado el mensaje de cliente
 
-                output_Server.writeUTF("[SERVER]: Me has dicho: "+numRespuestaCliente); // Mandado el
+                output_cliente.writeUTF("[SERVER]: Me has dicho: "+numRespuestaCliente); // Mandado el resultado a cliente
+
+                //sale : Errores encontrado enConnection reset by peer y Errores encontrado enSocket is closed
 
                 //cerramos la conexion
                 skServidor.close();
