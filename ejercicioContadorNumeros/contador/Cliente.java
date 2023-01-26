@@ -19,6 +19,7 @@ public class Cliente extends Conexion {
             output_cliente = new DataOutputStream(skCliente.getOutputStream());
 
             //EJERCICIO:
+
             for ( int i=0;i<3;i++){
                 System.out.println("Dime un número: ");
                 //recogida de respuesta por pantalla y mandado de la respuesta a servidor
@@ -30,7 +31,8 @@ public class Cliente extends Conexion {
 
             intput_cliente = new DataInputStream(skCliente.getInputStream());
             int mensajeRespuestaServer= intput_cliente.readInt();
-            System.out.println("Me has dicho: " + mensajeRespuestaServer);
+            System.out.println("[CLIENTE] Me has dicho: " + mensajeRespuestaServer); //recime el número
+
 
             //Cerramos conexión
             skCliente.close();

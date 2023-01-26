@@ -13,8 +13,10 @@ public class Servidor extends Conexion {
         try {
             while (true){
                 skCliente =skServidor.accept(); // que queda a la espera de recibir la petición de conexión
-                System.out.println("... Conexión aceptada de : "+ skCliente.getInetAddress().getHostName());
-                System.out.println("---------------------\n");
+                System.out.println("- Conexión aceptada de : "+ skCliente.getInetAddress().getHostName());
+                System.out.println("------------\n");
+
+                //EJERCICIO:
 
                 //recoge la respuesta que le manda el cliente y lo almacena en una variable
                 input_server = new DataInputStream(skCliente.getInputStream());
@@ -22,8 +24,10 @@ public class Servidor extends Conexion {
 
                 //Crea un mensaje y se lo manda a cliente con el número recogido para confirmar la comunicación con cliente
                 output_cliente=new DataOutputStream(skCliente.getOutputStream());
-                String mensajeServer="El numero que me has dado es: ";
-                output_Server.writeUTF(mensajeServer+numRespuestaCliente);
+                String mensajeServer="El numero que cliente me ha dado es: ";
+                System.out.println(mensajeServer+numRespuestaCliente); // impresión para confirma que nos ha llegado el mensaje de cliente
+
+                output_Server.writeUTF("[SERVER]: Me has dicho: "+numRespuestaCliente); // Mandado el
 
                 //cerramos la conexion
                 skServidor.close();

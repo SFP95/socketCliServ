@@ -17,7 +17,7 @@ public class MainServidor {
     {
         Servidor ser =new Servidor(); //Se crea el servidor
 
-        System.out.println("Iniciando servidor\n");
+        System.out.println("\nIniciando servidor\n----------------");
         ser.InitServidor(); //Se inicia el servidor
     }
 }
