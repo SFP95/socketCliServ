@@ -20,7 +20,7 @@ public class Cliente extends Conexion {
 
             //EJERCICIO:
 
-            for ( int i=0;i<3;i++){
+            for ( int i=0;i<4;i++){
                 System.out.println("Dime un número: ");
                 //recogida de respuesta por pantalla y mandado de la respuesta a servidor
                 int num = scan.nextInt();
