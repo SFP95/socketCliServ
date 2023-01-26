@@ -1,6 +1,4 @@
-package CONTADOR;
-
-import ejercicioContadorNumeros.contador.Cliente;
+package EJEMPLO;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

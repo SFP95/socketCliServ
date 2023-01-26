@@ -1,4 +1,4 @@
-package CONTADOR;
+package EJEMPLO;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

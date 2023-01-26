@@ -1,4 +1,4 @@
-package CONTADOR;
+package EJEMPLO;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -22,7 +22,7 @@ public class servidor extends conexion{
 
             salida_cliente=new DataOutputStream(scCliente.getOutputStream());
             String mensajeServer=" El numero que me has dado es: ";
-          +4  System.out.println(mensajeServer+numeroRespuesta);           //funciona
+            System.out.println(mensajeServer+numeroRespuesta);           //funciona
 
             
             salida_Server.writeUTF(mensajeServer+numeroRespuesta);
