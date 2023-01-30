@@ -15,7 +15,7 @@ public class Cliente extends Conexion{
     public Scanner scan=new Scanner(System.in);
 
     public Cliente() throws IOException {
-        super("CLIENTE");
+        super("Clienta");
     }
     public  void  initCLiente(){
         try {
@@ -24,16 +24,22 @@ public class Cliente extends Conexion{
             output_cliente = new DataOutputStream(skCliente.getOutputStream());
 
             //EJERCICIO AREA CIRCULO:
-            output_Server.writeUTF("Dime el radio del ciruculo (cm):");
+            input_server = new DataInputStream(skCliente.getInputStream());
+
+            String mensajeServer= input_server.readUTF();
+            System.out.println(mensajeServer);
+
             //System.out.println("Dime el radio del ciruculo (cm):");
             int num= scan.nextInt();
-            output_cliente.writeInt(num);;
+            output_cliente.writeInt(num);
+            System.out.println("Cliente a dicho "+num);
 
             /*----- Lo que recibe el cliente de parte de servidor -----*/
 
-            input_server= new DataInputStream(skCliente.getInputStream());
-            int resuesta= input_server.read();
-            System.out.println("[SERVER] "+resuesta);
+             input_server= new DataInputStream(skCliente.getInputStream());
+
+            String resuesta= input_server.readUTF();
+            System.out.println(resuesta);
 
         }catch (Exception e){
             //mensaje de error en caso de fallos en la conexión
