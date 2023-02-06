@@ -1,5 +1,7 @@
 package mensajesCifrados;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
@@ -9,6 +11,7 @@ public class MensajeEjercicio {
 
         MessageDigest md;
         try {
+            FileOutputStream fichero=new FileOutputStream("fichero.txt"); //coje el fichero que tenemos en el paquete creado
             md = MessageDigest.getInstance("SHA");
             String texto = "tengo que meter aqui el fichero."; //buscarlo en los apuntes de la primea evaluación
 
@@ -32,6 +35,8 @@ public class MensajeEjercicio {
                     + proveedor.toString());
         } catch (/*NoSuchAlgorithmException |*/ NoSuchAlgorithmException e) {
             System.out.println("ERROR en el MessageDigest"+e);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
     }//Fin de main
