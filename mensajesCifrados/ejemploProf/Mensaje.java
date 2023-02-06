@@ -1,4 +1,4 @@
-package mensajesCifrados;
+package mensajesCifrados.ejemploProf;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
